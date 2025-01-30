@@ -118,9 +118,9 @@ function CreateTrip() {
   }
 
   return (
-    <div className="sm:px-10 md:px-32 lg:px56 xl:px-10 px-5 mt-10">
-      <h2 className="font-bold text-3xl">Tell us your travel preferences 🌲🏕</h2>
-      <p className="mt-3 text-gray-500 text-xl">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt voluptate laudantium officiis modi, iusto necessitatibus est facere?</p>
+    <div className="sm:px-10 md:px-32 lg:px56 xl:px-10 px-5 mt-10 mx-24">
+      <h2 className="font-bold text-3xl">Share your travel preferences with us ✈️🌍</h2>
+      <p className="mt-3 text-gray-500 text-xl">Share your travel details, and we’ll create a personalized itinerary just for you!</p>
 
       <div className="mt-20 flex flex-col gap-10">
         <div>
