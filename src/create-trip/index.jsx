@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { AI_PROMPT, SelectedBudgetOptions, selectTravelesList } from '@/constants/options'
-import { chatSession } from '@/service/AIModal'
+// import { chatSession } from '@/service/AIModal'
 import React, { useEffect, useState } from 'react'
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete'
 import { toast } from 'sonner'
@@ -72,10 +72,21 @@ function CreateTrip() {
 
     console.log("🚀 ~ onGenerateTrip ~ FINAL_PROMPT:", FINAL_PROMPT)
 
-    const result = await chatSession.sendMessage(FINAL_PROMPT)
-    console.log("🚀 ~ onGenerateTrip ~ result:", result?.response?.text())
-    setLoading(false)
-    SaveAiTrip(result?.response?.text())
+    // const result = await chatSession.sendMessage(FINAL_PROMPT)
+    // console.log("🚀 ~ onGenerateTrip ~ result:", result?.response?.text())
+    // setLoading(false)
+    // SaveAiTrip(result?.response?.text())
+
+    const result = await axios.post('http://localhost:3000/trip/create-trip', {
+      userPrompt: FINAL_PROMPT
+    })
+
+    if (result.data && result.data.data && result.data.data.response) {
+      SaveAiTrip(result.data.data.response.text);
+    } else {
+      throw new Error('Invalid response format from server');
+    }
+
   }
 
   const SaveAiTrip = async (TripData) => {
