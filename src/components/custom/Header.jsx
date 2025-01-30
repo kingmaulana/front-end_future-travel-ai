@@ -29,16 +29,16 @@ function Header() {
   useEffect(() => {
     console.log(user?.picture);
 
-    google.accounts.id.initialize({
-      client_id: "1037520011360-dbeq797tjfr1c0ffqj659v2q8vv4nbp2.apps.googleusercontent.com",
-      callback: handleCredentialResponse
-    });
+    // google.accounts.id.initialize({
+    //   client_id: "1037520011360-dbeq797tjfr1c0ffqj659v2q8vv4nbp2.apps.googleusercontent.com",
+    //   callback: handleCredentialResponse
+    // });
 
-    // Button login
-    google.accounts.id.renderButton(
-      document.getElementById("buttonDiv"),
-      { theme: "outline", size: "large" }  // customization attributes
-    );
+    // // Button login
+    // google.accounts.id.renderButton(
+    //   document.getElementById("buttonDiv"),
+    //   { theme: "outline", size: "large" }  // customization attributes
+    // );
   }, [])
 
   const login = useGoogleLogin({
@@ -61,29 +61,29 @@ function Header() {
   }
 
 
-  async function handleCredentialResponse({ credential }) {
-    console.log("Encoded JWT ID token: " + credential);
+  // async function handleCredentialResponse({ credential }) {
+  //   console.log("Encoded JWT ID token: " + credential);
 
-    try {
-      const response = await axios.post('http://localhost:3000/user/google-login', {
-        googleToken: credential
-      })
-      localStorage.setItem("access_token", response.data.access_token);
-      Swal.fire({
-        title: "Success!",
-        text: "Login Berhasil",
-        icon: 'success'
-      })
-      navigate("/");
-    } catch (error) {
-      console.log("🚀 ~ handleSubmit ~ error:", error)
-      Swal.fire({
-        title: "Error!",
-        text: "Login Gagal invalid email/password",
-        icon: 'error'
-      })
-    }
-  }
+  //   try {
+  //     const response = await axios.post('http://localhost:3000/user/google-login', {
+  //       googleToken: credential
+  //     })
+  //     localStorage.setItem("access_token", response.data.access_token);
+  //     Swal.fire({
+  //       title: "Success!",
+  //       text: "Login Berhasil",
+  //       icon: 'success'
+  //     })
+  //     navigate("/");
+  //   } catch (error) {
+  //     console.log("🚀 ~ handleSubmit ~ error:", error)
+  //     Swal.fire({
+  //       title: "Error!",
+  //       text: "Login Gagal invalid email/password",
+  //       icon: 'error'
+  //     })
+  //   }
+  // }
 
   return (
     <div className="p-3 shadow-sm flex justify-between items-center px-5">
@@ -141,7 +141,7 @@ function Header() {
             </Dialog>
 
             {/* Place for ui google login will display, its from documentation */}
-            <div id="buttonDiv" className="mt-5"></div>
+            {/* <div id="buttonDiv" className="mt-5"></div> */}
           </div>
         }
       </div>
