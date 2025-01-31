@@ -19,6 +19,7 @@ import {
 import { FcGoogle } from "react-icons/fc";
 import axios from 'axios';
 import Swal from 'sweetalert2'
+import Login from './Login';
 
 
 function Header() {
@@ -119,8 +120,9 @@ function Header() {
           </div>
           :
           <div className='flex gap-5'>
-
-            <Button onClick={() => setOpenDialog(true)}>Sign In</Button>
+            {/* <Login /> */}
+            <Button onClick={() => setOpenDialog(true)}><span><FcGoogle className="h-7 w-7" /></span> Sign In</Button>
+            {/* <Link to={'/login'} className='bg-black text-white '>Login</Link> */}
             <Dialog open={openDialog}>
               <DialogContent>
                 <DialogHeader>

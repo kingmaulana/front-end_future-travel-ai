@@ -77,7 +77,7 @@ function CreateTrip() {
     // setLoading(false)
     // SaveAiTrip(result?.response?.text())
 
-    const result = await axios.post('http://localhost:3000/trip/create-trip', {
+    const result = await axios.post('https://ai.maulanadev.my.id/trip/create-trip', {
       userPrompt: FINAL_PROMPT
     })
 
@@ -224,8 +224,6 @@ function CreateTrip() {
         </DialogHeader>
       </DialogContent>
     </Dialog> */}
-
-
     </div>
   )
 }
